@@ -1,2 +1,2 @@
-\# Server Inventory Tool
+# Server Inventory Tool
 
