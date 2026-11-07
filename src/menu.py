@@ -1,5 +1,5 @@
 from src import controller
-from src.storage import save_servers
+from src.storage import save_servers, export_to_csv
 
 
 def show_menu(servers):
@@ -53,7 +53,9 @@ def show_menu(servers):
                 print("\n=== VERIFY ALL SERVERS ===")
                 controller.check_servers(servers)
             case "7":
-                print("EXPORT REPORT TO CSV")
+                print("\n=== EXPORT REPORT TO CSV ===")
+                export_to_csv(servers)
+
             case "0":
                 print("Exit program..")
                 break
