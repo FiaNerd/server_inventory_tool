@@ -4,31 +4,31 @@
         "address": "example.com",
         "environment": "prod",
         "role": "webbserver",
-        "status": "up",
-        "last_checked": ""
+        "status": "down",
+        "last_checked": "2026-11-07 01:06"
     },
     {
         "name": "db01",
         "address": "127.0.0.1",
         "environment": "prod",
         "role": "databas",
-        "status": "unknown",
-        "last_checked": ""
+        "status": "down",
+        "last_checked": "2026-11-07 01:06"
     },
     {
         "name": "test01",
         "address": "192.0.2.10",
         "environment": "test",
         "role": "testserver",
-        "status": "unknown",
-        "last_checked": ""
+        "status": "down",
+        "last_checked": "2026-11-07 01:06"
     },
     {
         "name": "dev01",
         "address": "localhost",
         "environment": "dev",
         "role": "utvecklingsserver",
-        "status": "unknown",
-        "last_checked": ""
+        "status": "down",
+        "last_checked": "2026-11-07 01:06"
     }
 ]
