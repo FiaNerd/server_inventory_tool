@@ -50,7 +50,8 @@ def show_menu(servers):
                     print(f"[!] Server '{server_name}' was not found.")
 
             case "6":
-                print("VERIFY ALL SERVERS")
+                print("\n=== VERIFY ALL SERVERS ===")
+                controller.check_servers(servers)
             case "7":
                 print("EXPORT REPORT TO CSV")
             case "0":
