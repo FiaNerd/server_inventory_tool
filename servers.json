@@ -5,7 +5,7 @@
         "environment": "prod",
         "role": "webbserver",
         "status": "down",
-        "last_checked": "2026-11-07 01:06"
+        "last_checked": "2026-11-07 18:08"
     },
     {
         "name": "db01",
@@ -13,7 +13,7 @@
         "environment": "prod",
         "role": "databas",
         "status": "down",
-        "last_checked": "2026-11-07 01:06"
+        "last_checked": "2026-11-07 18:05"
     },
     {
         "name": "test01",
@@ -21,7 +21,7 @@
         "environment": "test",
         "role": "testserver",
         "status": "down",
-        "last_checked": "2026-11-07 01:06"
+        "last_checked": "2026-11-07 16:35"
     },
     {
         "name": "dev01",
@@ -29,6 +29,6 @@
         "environment": "dev",
         "role": "utvecklingsserver",
         "status": "down",
-        "last_checked": "2026-11-07 01:06"
+        "last_checked": "2026-11-07 17:13"
     }
 ]
