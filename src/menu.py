@@ -52,8 +52,30 @@ def show_menu(servers):
                             f"{server['status']:<10}")
                         print()
 
+            # TODO: fix required field so the user can not add emtpy servers
+            # TODO: fix so it is only possible to write in the environment - dev, test, prod
             case "3":
                 print("\n=== ADD NEW SERVER === ")
+                server_name = input("Enter server name: ").strip()
+
+                if any(server.get("name", "").lower() == server_name.lower() for server in servers):
+                    print(f"\n[!] The server name '{server_name:<4}' already exists.' \nTry another server name")
+                else:
+                    address = input("Enter address: ").strip()
+                    environment = input("Enter environment: ").strip()
+                    role = input("Enter role: ").strip()
+                    status = input("Enter status: ").strip()
+
+                    new_server = {
+                        "name": server_name,
+                        "address": address,
+                        "environment": environment,
+                        "role": role,
+                        "status": status
+                    }
+
+                    servers.append(new_server)
+                    print(f"Server {server_name} added successfully!.")
             case "4":
                 print("\n=== DELETE A SERVER ===")
 
