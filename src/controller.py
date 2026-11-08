@@ -2,6 +2,14 @@ import subprocess
 from datetime import datetime
 from src.storage import save_servers
 
+# A function to filter servers by environment
+def filter_servers_in_environment(servers, environment):
+    return [
+        server for server in servers
+        if server["environment"].lower() == environment.lower()
+    ]
+
+
 # A function for checking if a single server answers a ping request
 def check_server(server):
     address = server.get("address")
