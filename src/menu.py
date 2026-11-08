@@ -1,6 +1,4 @@
 from src import controller, storage
-from src.storage import save_servers, export_to_csv
-
 
 def show_menu(servers):
     while True:
@@ -19,20 +17,41 @@ def show_menu(servers):
  # TODO: if there is time, se if you can do when the user press a number, the user should press another key for getting back to the menu
         match user_choice:
             case "1":
-               print("\n=== SHOW ALL SERVERS ===\n")
+               print("\n=== SHOW ALL SERVERS ===")
                if not servers:
-                   print("No servers found. Please add a server first.")
+                   print(f"No servers found {user_choice}. Please add a server first.")
                else:
                    for server in servers:
                        print("-" * 30)
-                       print(f"{'Name:':<14} {server.get('name')}")
-                       print(f"{'Address:':<14} {server.get('address')}")
-                       print(f"{'Environment:':<14} {server.get('environment')}")
-                       print(f"{'Status:':<14} {server.get('status', 'unknown').upper()}")
+                       print(f"{'NAME:':<14} {server.get('name')}")
+                       print(f"{'ADDRESS:':<14} {server.get('address')}")
+                       print(f"{'ENVIRONMENT:':<14} {server.get('environment')}")
+                       print(f"{'STATUS:':<14} {server.get('status', 'unknown').upper()}")
                    print("-" * 30)
 
             case "2":
                 print("\n=== SHOW SERVERS FROM ENVIRONMENT ===")
+                input_env = input("Which enviorment (dev, test, prod)?: ").strip()
+
+                matched_servers =  controller.filter_servers_in_environment(servers, input_env)
+
+                if not matched_servers:
+                    print(f"\n[!] No servers found in the enviorment - {input_env}. \nTry again or add a server.")
+
+                else:
+                    print(f"\nServer in enviorment '{input_env}'")
+                    print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12}")
+                    print("-" * 70)
+
+                    for server in matched_servers:
+                        print(
+                            f"{server['name']:<12} "
+                            f"{server['address']:<15} "
+                            f"{server['environment']:<16} "
+                            f"{server['role']:<16} "
+                            f"{server['status']:<10}")
+                        print()
+
             case "3":
                 print("\n=== ADD NEW SERVER === ")
             case "4":

@@ -3,7 +3,7 @@
         "name": "web01",
         "address": "example.com",
         "environment": "prod",
-        "role": "webbserver",
+        "role": "webserver",
         "status": "down",
         "last_checked": "2026-11-07 18:21"
     },
@@ -11,7 +11,7 @@
         "name": "db01",
         "address": "127.0.0.1",
         "environment": "prod",
-        "role": "databas",
+        "role": "database",
         "status": "down",
         "last_checked": "2026-11-07 18:21"
     },
@@ -27,7 +27,7 @@
         "name": "dev01",
         "address": "localhost",
         "environment": "dev",
-        "role": "utvecklingsserver",
+        "role": "developserver",
         "status": "down",
         "last_checked": "2026-11-07 18:21"
     }
