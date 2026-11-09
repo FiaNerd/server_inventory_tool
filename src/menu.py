@@ -21,50 +21,54 @@ def show_menu(servers):
             case "1":
                print("\n=== SHOW ALL SERVERS ===")
                if not servers:
-                   print(f"No servers found {user_choice}. Please add a server first.")
+                   print(f"No servers found '{user_choice}'. Please add a server first.")
                else:
+                   print(
+                       f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
+                   print("-" * 95)
+
                    for server in servers:
-                       print("-" * 30)
-                       print(f"{'NAME:':<14} {server.get('name').lower()}")
-                       print(f"{'ADDRESS:':<14} {server.get('address').lower()}")
-                       print(f"{'ENVIRONMENT:':<14} {server.get('environment').lower()}")
-                       print(f"{'STATUS:':<14} {server.get('status', 'unknown').lower()}")
 
-                       last_checked = server.get('last_checked')
-
-                       if not last_checked:
-                           checked = "never"
-                       else:
-                           checked = last_checked
-
-                       print(f"{'LAST CHECKED:':<14} {checked}")
-
-
-                   print("-" * 30)
+                       print(
+                           f"{server['name']:<12} "
+                           f"{server['address']:<15} "
+                           f"{server['environment']:<16} "
+                           f"{server['role']:<16} "
+                           f"{server.get('status', 'unknown'):<12} "
+                           f"{server.get('last_checked', ''):<16}"
+                       )
 
             case "2":
-                print("\n=== SHOW SERVERS FROM ENVIRONMENT ===")
-                input_env = input("Which enviorment (dev, test, prod)?: ").strip()
+                while True:
+                    print("\n=== SHOW SERVERS FROM ENVIRONMENT ===")
+                    print(" [press 'q' to go back to the menu]\n")
 
-                matched_servers =  controller.filter_servers_in_environment(servers, input_env)
+                    input_env = input("Which enviorment (dev, test, prod)?: ").strip().lower()
 
-                if not matched_servers:
-                    print(f"\n[!] No servers found in the enviorment - {input_env}. \nTry again or add a server.")
+                    if input_env == "q":
+                        break
 
-                else:
-                    print(f"\nServer in enviorment '{input_env}'")
-                    print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
-                    print("-" * 100)
+                    matched_servers =  controller.filter_servers_in_environment(servers, input_env)
 
-                    for server in matched_servers:
-                        print(
-                            f"{server['name']:<12} "
-                            f"{server['address']:<15} "
-                            f"{server['environment']:<16} "
-                            f"{server['role']:<16} "
-                            f"{server['status']:<13}"
-                            f"{server['last_checked']}")
-                        print()
+                    if not matched_servers:
+                        print(f"\n[!] No servers found in the enviorment - {input_env}. \nTry again or add a server.")
+                        continue
+
+                    else:
+                        print(f"\nServer in enviorment '{input_env}'")
+                        print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
+                        print("-" * 95)
+
+                        for server in matched_servers:
+                            print(
+                                f"{server['name']:<12} "
+                                f"{server['address']:<15} "
+                                f"{server['environment']:<16} "
+                                f"{server['role']:<16} "
+                                f"{server.get('status', 'unknown'):<12} "
+                                f"{server.get('last_checked', ''):<16}"
+                            )
+                    break
 
             case "3":
                 print("\n=== ADD NEW SERVER === ")

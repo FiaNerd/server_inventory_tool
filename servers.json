@@ -5,7 +5,7 @@
         "environment": "prod",
         "role": "webserver",
         "status": "down",
-        "last_checked": "2026-11-09 16:36"
+        "last_checked": "2026-11-09 17:15"
     },
     {
         "name": "db01",
@@ -13,7 +13,7 @@
         "environment": "prod",
         "role": "database",
         "status": "down",
-        "last_checked": "2026-11-09 16:36"
+        "last_checked": "2026-11-09 17:15"
     },
     {
         "name": "test01",
@@ -21,7 +21,7 @@
         "environment": "test",
         "role": "testserver",
         "status": "down",
-        "last_checked": "2026-11-09 16:36"
+        "last_checked": "2026-11-09 17:15"
     },
     {
         "name": "dev01",
@@ -29,14 +29,14 @@
         "environment": "dev",
         "role": "developserver",
         "status": "down",
-        "last_checked": "2026-11-09 16:44"
+        "last_checked": "2026-11-09 17:15"
     },
     {
-        "name": "dev02",
-        "address": "local",
-        "environment": "dev",
-        "role": "amdin",
+        "name": "addDB",
+        "address": "www.nothing.com",
+        "environment": "prod",
+        "role": "webrole",
         "status": "down",
-        "last_checked": "2026-11-09 16:40"
+        "last_checked": "2026-11-09 17:58"
     }
 ]
