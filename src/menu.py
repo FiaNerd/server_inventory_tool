@@ -1,4 +1,6 @@
 from src import controller, storage
+from src.utils.input_validator import valid_input
+
 
 def show_menu(servers):
     while True:
@@ -55,23 +57,23 @@ def show_menu(servers):
             # TODO: fix required field so the user can not add emtpy servers
             case "3":
                 print("\n=== ADD NEW SERVER === ")
-                server_name = input("Enter server name: ").strip()
+                server_name = valid_input("Enter server name: ")
 
                 if any(server.get("name", "").lower() == server_name.lower() for server in servers):
                     print(f"\n[!] The server name '{server_name:<4}' already exists.' \nTry another server name")
                 else:
-                    address = input("Enter address: ").strip()
+                    address = valid_input("Enter address: ").strip()
                     # TODO: if there is time, change to swtich case so the user enter number instead of writing dev, test, prod
                     while True:
-                        environment = input("Enter environment (dev, test, prod): ").strip()
+                        environment = valid_input("Enter environment (dev, test, prod): ").strip()
 
                         if environment in ["dev", "test", "prod"]:
                             break
 
                         print(f"\n[!] Sorry, the environment '{environment}' is invalid. \n Try again.\n")
 
-                    role = input("Enter role: ").strip()
-                    status = input("Enter status: ").strip()
+                    role = valid_input("Enter role: ").strip()
+                    status = valid_input("Enter status: ").strip()
 
                     new_server = {
                         "name": server_name,
