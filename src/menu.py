@@ -53,7 +53,6 @@ def show_menu(servers):
                         print()
 
             # TODO: fix required field so the user can not add emtpy servers
-            # TODO: fix so it is only possible to write in the environment - dev, test, prod
             case "3":
                 print("\n=== ADD NEW SERVER === ")
                 server_name = input("Enter server name: ").strip()
@@ -62,7 +61,15 @@ def show_menu(servers):
                     print(f"\n[!] The server name '{server_name:<4}' already exists.' \nTry another server name")
                 else:
                     address = input("Enter address: ").strip()
-                    environment = input("Enter environment: ").strip()
+                    # TODO: if there is time, change to swtich case so the user enter number instead of writing dev, test, prod
+                    while True:
+                        environment = input("Enter environment (dev, test, prod): ").strip()
+
+                        if environment in ["dev", "test", "prod"]:
+                            break
+
+                        print(f"\n[!] Sorry, the environment '{environment}' is invalid. \n Try again.\n")
+
                     role = input("Enter role: ").strip()
                     status = input("Enter status: ").strip()
 
