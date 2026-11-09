@@ -99,6 +99,8 @@ def show_menu(servers):
                     }
 
                     servers.append(new_server)
+                    storage.save_servers(servers)
+
                     print(f"Server {server_name} added successfully!")
             case "4":
                 print("\n=== DELETE A SERVER ===")
@@ -119,9 +121,9 @@ def show_menu(servers):
                     controller.check_server(found_server)
                     storage.save_servers(servers)
 
-                    status = found_server.get("status")
-                    last_checked = found_server.get("last_checked")
-                    print(f"Server '{server_name:<4}' checked successfully!")
+                    status = found_server.get("status", "unknown")
+                    last_checked = found_server.get("last_checked", "")
+                    print(f"Server '{server_name}' checked successfully!")
                     print(f"Status: {status.upper():<4} | Last checked: {last_checked}")
                 else:
                     print(f"[!] Server '{server_name}' was not found.")

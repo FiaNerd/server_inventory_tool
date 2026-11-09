@@ -16,14 +16,6 @@
         "last_checked": "2026-11-09 17:15"
     },
     {
-        "name": "test01",
-        "address": "192.0.2.10",
-        "environment": "test",
-        "role": "testserver",
-        "status": "down",
-        "last_checked": "2026-11-09 17:15"
-    },
-    {
         "name": "dev01",
         "address": "localhost",
         "environment": "dev",
@@ -32,11 +24,11 @@
         "last_checked": "2026-11-09 17:15"
     },
     {
-        "name": "addDB",
-        "address": "www.nothing.com",
+        "name": "dbPostgresql",
+        "address": "www.prod.com",
         "environment": "prod",
-        "role": "webrole",
-        "status": "down",
-        "last_checked": "2026-11-09 17:58"
+        "role": "databse",
+        "status": "unknown",
+        "last_checked": ""
     }
 ]
