@@ -37,7 +37,7 @@ def show_menu(servers):
                        else:
                            checked = last_checked
 
-                       print(f"{'LAST CHECKED:':<21} {checked}")
+                       print(f"{'LAST CHECKED:':<14} {checked}")
 
 
                    print("-" * 30)
