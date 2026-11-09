@@ -53,8 +53,8 @@ def show_menu(servers):
 
                 else:
                     print(f"\nServer in enviorment '{input_env}'")
-                    print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12}")
-                    print("-" * 70)
+                    print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
+                    print("-" * 100)
 
                     for server in matched_servers:
                         print(
@@ -62,7 +62,8 @@ def show_menu(servers):
                             f"{server['address']:<15} "
                             f"{server['environment']:<16} "
                             f"{server['role']:<16} "
-                            f"{server['status']:<10}")
+                            f"{server['status']:<13}"
+                            f"{server['last_checked']}")
                         print()
 
             case "3":
