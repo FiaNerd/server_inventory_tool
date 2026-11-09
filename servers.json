@@ -30,5 +30,13 @@
         "role": "developserver",
         "status": "down",
         "last_checked": "2026-11-09 16:36"
+    },
+    {
+        "name": "dev02",
+        "address": "local",
+        "environment": "dev",
+        "role": "amdin",
+        "status": "down",
+        "last_checked": "2026-11-09 16:40"
     }
 ]

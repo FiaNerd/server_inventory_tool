@@ -37,7 +37,7 @@ def show_menu(servers):
                        else:
                            checked = last_checked
 
-                       print(f"{'SENAST KONTROLLERAD:':<21} {checked}")
+                       print(f"{'LAST CHECKED:':<21} {checked}")
 
 
                    print("-" * 30)
@@ -116,8 +116,8 @@ def show_menu(servers):
 
                     status = found_server.get("status")
                     last_checked = found_server.get("last_checked")
-                    print(f" Server '{server_name:<4}' checked successfully!")
-                    print(f" Status: {status.upper():<4} | Last checked: {last_checked}")
+                    print(f"Server '{server_name:<4}' checked successfully!")
+                    print(f"Status: {status.upper():<4} | Last checked: {last_checked}")
                 else:
                     print(f"[!] Server '{server_name}' was not found.")
 
