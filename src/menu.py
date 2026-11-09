@@ -25,10 +25,21 @@ def show_menu(servers):
                else:
                    for server in servers:
                        print("-" * 30)
-                       print(f"{'NAME:':<14} {server.get('name')}")
-                       print(f"{'ADDRESS:':<14} {server.get('address')}")
-                       print(f"{'ENVIRONMENT:':<14} {server.get('environment')}")
-                       print(f"{'STATUS:':<14} {server.get('status', 'unknown').upper()}")
+                       print(f"{'NAME:':<14} {server.get('name').lower()}")
+                       print(f"{'ADDRESS:':<14} {server.get('address').lower()}")
+                       print(f"{'ENVIRONMENT:':<14} {server.get('environment').lower()}")
+                       print(f"{'STATUS:':<14} {server.get('status', 'unknown').lower()}")
+
+                       last_checked = server.get('last_checked')
+
+                       if not last_checked:
+                           checked = "never"
+                       else:
+                           checked = last_checked
+
+                       print(f"{'SENAST KONTROLLERAD:':<21} {checked}")
+
+
                    print("-" * 30)
 
             case "2":
@@ -78,7 +89,8 @@ def show_menu(servers):
                         "address": address,
                         "environment": environment,
                         "role": role,
-                        "status": "unknown"
+                        "status": "unknown",
+                        "last_checked": ""
                     }
 
                     servers.append(new_server)
