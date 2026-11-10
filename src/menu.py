@@ -105,6 +105,13 @@ def show_menu(servers):
 
             case "4":
                 print("\n=== DELETE A SERVER ===")
+                print("Press [q] at any time to return to the menu.\n")
+
+                user_input = input("What server to delete?: ").strip()
+
+                if user_input.lower() == "q":
+                    break
+                
 
             case "5":
                 print("\n=== VERIFY SINGLE SERVER ===")
