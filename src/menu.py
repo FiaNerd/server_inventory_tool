@@ -43,19 +43,19 @@ def show_menu(servers):
                     print("\n=== SHOW SERVERS FROM ENVIRONMENT ===")
                     print(" [press 'q' to go back to the menu]\n")
 
-                    input_env = input("Which enviorment (dev, test, prod)?: ").strip().lower()
+                    input_enviorment = input("Which enviorment (dev, test, prod)?: ").strip().lower()
 
-                    if input_env == "q":
+                    if input_enviorment == "q":
                         break
 
-                    matched_servers =  controller.filter_servers_in_environment(servers, input_env)
+                    matched_servers =  controller.filter_servers_in_environment(servers, input_enviorment)
 
                     if not matched_servers:
-                        print(f"\n[!] No servers found in the enviorment - {input_env}. \nTry again or add a server.")
+                        print(f"\n[!] No servers found in the enviorment - {input_enviorment}. \nTry again or add a server.")
                         continue
 
                     else:
-                        print(f"\nServer in enviorment '{input_env}'")
+                        print(f"\nServer in enviorment '{input_enviorment}'")
                         print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
                         print("-" * 95)
 
@@ -72,13 +72,23 @@ def show_menu(servers):
 
             case "3":
                 print("\n=== ADD NEW SERVER === ")
-                server_name = valid_input("Enter server name: ")
+                print("Press [q] at any time to return to the menu.\n")
 
-                if any(server.get("name", "").lower() == server_name.lower() for server in servers):
-                    print(f"\n[!] The server name '{server_name}' already exists.\nTry another server name.")
-                else:
+                while True:
+                    server_name = valid_input("Enter server name: ").strip()
+
+                    if server_name.lower() == 'q':
+                        print("\nReturning to menu...")
+                        break
+
+                    if any(server.get("name", "").lower() == server_name.lower() for server in servers):
+                        print(f"\n[!] The server name '{server_name}' already exists.\nTry another server name.\n")
+                    else:
+                        break
+
+                if server_name.lower() != 'q':
                     address = valid_input("Enter address: ").strip()
-                    # TODO: if there is time, change to swtich case so the user enter number instead of writing dev, test, prod
+
                     while True:
                         environment = valid_input("Enter environment (dev, test, prod): ").strip()
 
@@ -89,19 +99,10 @@ def show_menu(servers):
 
                     role = valid_input("Enter role: ").strip()
 
-                    new_server = {
-                        "name": server_name,
-                        "address": address,
-                        "environment": environment,
-                        "role": role,
-                        "status": "unknown",
-                        "last_checked": ""
-                    }
+                    controller.add_new_server(servers, server_name, address, environment, role, storage)
 
-                    servers.append(new_server)
-                    storage.save_servers(servers)
+                    print(f"\n[+] Server '{server_name}' added successfully!")
 
-                    print(f"Server {server_name} added successfully!")
             case "4":
                 print("\n=== DELETE A SERVER ===")
 

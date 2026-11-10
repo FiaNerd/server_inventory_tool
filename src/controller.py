@@ -2,11 +2,29 @@ import subprocess
 from datetime import datetime
 from src.storage import save_servers
 
+
+def add_new_server(servers, server_name, address, environment, role, storage):
+
+    new_server = {
+        "name": server_name,
+        "address": address,
+        "environment": environment,
+        "role": role,
+        "status": "unknown",
+        "last_checked": ""
+    }
+
+    servers.append(new_server)
+    storage.save_servers(servers)
+
+    return new_server
+
+
 # A function to filter servers by environment
 def filter_servers_in_environment(servers, environment):
     return [
         server for server in servers
-        if server["environment"].lower() == environment.lower()
+        if server.get("environment").lower() == environment.lower()
     ]
 
 

@@ -30,5 +30,13 @@
         "role": "databse",
         "status": "unknown",
         "last_checked": ""
+    },
+    {
+        "name": "db02",
+        "address": "local",
+        "environment": "prod",
+        "role": "webb",
+        "status": "unknown",
+        "last_checked": ""
     }
 ]
