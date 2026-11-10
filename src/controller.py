@@ -20,6 +20,22 @@ def add_new_server(servers, server_name, address, environment, role, storage):
     return new_server
 
 
+def verify_server_by_name(servers, server_name, storage ):
+    # Find server by name (case-insensitive), returns None if not found
+    find_server = next(
+        (server for server in servers if server.get("name", "").lower() == server_name.lower()),
+        None
+    )
+
+    if not find_server:
+        return False, f"\n[!] Server '{server_name}' was not found."
+
+    check_server(find_server)
+    storage.save_servers(servers)
+
+    return True, find_server
+
+
 # A function to filter servers by environment
 def filter_servers_in_environment(servers, environment):
     return [

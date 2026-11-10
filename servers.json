@@ -13,7 +13,7 @@
         "environment": "prod",
         "role": "database",
         "status": "down",
-        "last_checked": "2026-11-09 17:15"
+        "last_checked": "2026-11-10 18:04"
     },
     {
         "name": "dev01",
@@ -36,7 +36,7 @@
         "address": "local",
         "environment": "prod",
         "role": "webb",
-        "status": "unknown",
-        "last_checked": ""
+        "status": "down",
+        "last_checked": "2026-11-10 18:05"
     }
 ]

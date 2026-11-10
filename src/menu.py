@@ -14,7 +14,7 @@ def show_menu(servers):
         print("[7] Export report as CSV")
         print("[0] Exit")
 
-        user_choice = input("Choose an option: ").strip()
+        user_choice = input("\nChoose an option: ").strip()
 
  # TODO: if there is time, se if you can do when the user press a number, the user should press another key for getting back to the menu
         match user_choice:
@@ -110,24 +110,16 @@ def show_menu(servers):
                 print("\n=== VERIFY SINGLE SERVER ===")
                 server_name = input("Enter the name of the server to verify: ").strip()
 
-                # Find server by name (case-insensitive), returns None if not found
-                found_server = next(
-                    (server for server in servers if server.get("name", "").lower() == server_name.lower()),
-                    None
-                )
+                success, result = controller.verify_server_by_name(servers, server_name, storage)
 
-                if found_server:
-                    print(f"\nPinging the address: {found_server.get('address')}")
-
-                    controller.check_server(found_server)
-                    storage.save_servers(servers)
-
-                    status = found_server.get("status", "unknown")
-                    last_checked = found_server.get("last_checked", "")
+                if success:
+                    status = result.get("status", "unknown")
+                    last_checked = result.get("last_checked", "")
+                    print(f"\nPinging the address: {result.get('address')}")
                     print(f"Server '{server_name}' checked successfully!")
                     print(f"Status: {status.upper():<4} | Last checked: {last_checked}")
                 else:
-                    print(f"[!] Server '{server_name}' was not found.")
+                    print(f"[!] {result}")
 
             case "6":
                 print("\n=== VERIFY ALL SERVERS ===")
@@ -138,6 +130,7 @@ def show_menu(servers):
 
             case "0":
                 print("Exit program..")
+                print("Hope to see you again!")
                 break
             case _:
                 print(f"\n[!] Invalid option - {user_choice}.")
