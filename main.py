@@ -24,3 +24,9 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         menu.show_menu(servers)
         sys.exit(0)
+
+    if args.list:
+        for server in servers:
+            print(server)
+
+        sys.exit(0)

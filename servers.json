@@ -22,5 +22,13 @@
         "role": "developserver",
         "status": "down",
         "last_checked": "2026-11-12 16:37"
+    },
+    {
+        "name": "db02",
+        "address": "local",
+        "environment": "prod",
+        "role": "databse",
+        "status": "unknown",
+        "last_checked": ""
     }
 ]
