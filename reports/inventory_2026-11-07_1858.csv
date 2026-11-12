@@ -1,5 +1,0 @@
-name,address,environment,role,status,last_checked
-web01,example.com,prod,webbserver,down,2026-11-07 18:21
-db01,127.0.0.1,prod,databas,down,2026-11-07 18:21
-test01,192.0.2.10,test,testserver,down,2026-11-07 18:21
-dev01,localhost,dev,utvecklingsserver,down,2026-11-07 18:21
