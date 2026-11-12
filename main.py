@@ -1,5 +1,6 @@
 import sys
 from src import menu
+from src.controller import filter_servers_in_environment
 from src.storage import load_servers
 from argparse import ArgumentParser, Namespace
 
@@ -25,8 +26,41 @@ if __name__ == "__main__":
         menu.show_menu(servers)
         sys.exit(0)
 
-    if args.list:
-        for server in servers:
-            print(server)
 
+    if args.list:
+        print(
+            f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIROMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
+        print("-" * 95)
+
+        for server in servers:
+            print(
+                f"{server['name']:<12} "
+                f"{server['address']:<15} "
+                f"{server['environment']:<16} "
+                f"{server['role']:<16} "
+                f"{server.get('status', 'unknown'):<12} "
+                f"{server.get('last_checked', ''):<16}"
+            )
+        sys.exit(0)
+
+
+    if args.environment:
+        filtered_servers = filter_servers_in_environment(servers, args.environment)
+
+        if not filtered_servers:
+            print(f"No servers found in environment '{args.environment}'.")
+            sys.exit(1)
+
+        print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIRONMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
+        print("-" * 95)
+
+        for server in filtered_servers:
+            print(
+                f"{server['name']:<12} "
+                f"{server['address']:<15} "
+                f"{server['environment']:<16} "
+                f"{server['role']:<16} "
+                f"{server.get('status', 'unknown'):<12} "
+                f"{server.get('last_checked', ''):<16}"
+            )
         sys.exit(0)
