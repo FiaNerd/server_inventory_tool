@@ -1,5 +1,6 @@
 import subprocess
 from datetime import datetime
+from src import storage
 from src.storage import save_servers
 
 
@@ -18,6 +19,17 @@ def add_new_server(servers, server_name, address, environment, role, storage):
     storage.save_servers(servers)
 
     return new_server
+
+
+def delete_server_by_name(servers, server_name):
+
+    for server in servers:
+        if server.get("name", "").lower() == server_name.lower():
+            servers.remove(server)
+            storage.save_servers(servers)
+            return True, f"Server '{server_name}' has been deleted."
+
+    return False, f"\n[!] Server '{server_name}' was not found."
 
 
 def verify_server_by_name(servers, server_name, storage ):

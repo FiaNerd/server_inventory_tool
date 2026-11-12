@@ -5,3 +5,4 @@ if __name__ == "__main__":
     servers = load_servers()
 
     menu.show_menu(servers)
+    

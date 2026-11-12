@@ -22,21 +22,5 @@
         "role": "developserver",
         "status": "down",
         "last_checked": "2026-11-09 17:15"
-    },
-    {
-        "name": "dbPostgresql",
-        "address": "www.prod.com",
-        "environment": "prod",
-        "role": "databse",
-        "status": "unknown",
-        "last_checked": ""
-    },
-    {
-        "name": "db02",
-        "address": "local",
-        "environment": "prod",
-        "role": "webb",
-        "status": "down",
-        "last_checked": "2026-11-10 18:05"
     }
 ]

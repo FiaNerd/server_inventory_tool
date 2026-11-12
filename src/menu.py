@@ -107,11 +107,50 @@ def show_menu(servers):
                 print("\n=== DELETE A SERVER ===")
                 print("Press [q] at any time to return to the menu.\n")
 
-                user_input = input("What server to delete?: ").strip()
+                while True:
+                    server_name = input("What server to delete?: ").strip()
 
-                if user_input.lower() == "q":
-                    break
-                
+                    if server_name.lower() == "q":
+                        print("\nReturning to menu...")
+                        break
+
+                    server_exist = next((server for server in servers
+                                         if server.get("name", "").lower() == server_name.lower()),
+                                         None)
+
+                    if not server_exist:
+                        print(f"\n[!] Server '{server_name}' was not found.\nTry again.\n")
+                    else:
+
+                        delete_confirmation = input(f"Are you sure to delete '{server_name}'? (y/n) ").strip().lower()
+
+                        if delete_confirmation in ["y"]:
+
+                            environment_prod = server_exist.get("environment", "").lower()
+
+                            if environment_prod in ["prod"]:
+                                print(f"\n[!] WARNING: {server_name} is in production!\n Are you sure you wanna delete '{server_name}'")
+
+                                prod_confirmation = input(f"\nConfirm the server name '{server_name}' again: ").strip()
+
+                                if prod_confirmation.lower() != server_name.lower():
+                                    print("\n[!] The name did not match. Canceld delation\n")
+                                    continue
+
+                            success, result = controller.delete_server_by_name(servers, server_name)
+
+                            if success:
+                                print(f"\n{result}\n")
+                                break
+                            else:
+                                print(f"\n[!] {result}\n")
+                                break
+                        elif delete_confirmation in ["n"]:
+                            print("\nThe deletion was canceled.\n")
+                            break
+                        else:
+                            print("\nSorry, invalid input. Press ['y'] or ['n']. \n Try again!")
+
 
             case "5":
                 print("\n=== VERIFY SINGLE SERVER ===")
@@ -131,6 +170,7 @@ def show_menu(servers):
             case "6":
                 print("\n=== VERIFY ALL SERVERS ===")
                 controller.check_servers(servers)
+
             case "7":
                 print("\n=== EXPORT REPORT TO CSV ===")
                 storage.export_to_csv(servers)
@@ -139,6 +179,7 @@ def show_menu(servers):
                 print("Exit program..")
                 print("Hope to see you again!")
                 break
+
             case _:
                 print(f"\n[!] Invalid option - {user_choice}.")
                 print("Choose a number between 0 and 7 ")
