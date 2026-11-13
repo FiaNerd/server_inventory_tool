@@ -5,7 +5,7 @@
         "environment": "prod",
         "role": "webserver",
         "status": "down",
-        "last_checked": "2026-11-12 16:37"
+        "last_checked": "2026-11-13 07:21"
     },
     {
         "name": "db01",
@@ -13,7 +13,7 @@
         "environment": "prod",
         "role": "database",
         "status": "down",
-        "last_checked": "2026-11-13 07:04"
+        "last_checked": "2026-11-13 07:21"
     },
     {
         "name": "dev01",
@@ -21,14 +21,14 @@
         "environment": "dev",
         "role": "developserver",
         "status": "down",
-        "last_checked": "2026-11-12 16:37"
+        "last_checked": "2026-11-13 07:21"
     },
     {
         "name": "db02",
         "address": "local",
         "environment": "prod",
         "role": "databse",
-        "status": "unknown",
-        "last_checked": ""
+        "status": "down",
+        "last_checked": "2026-11-13 07:21"
     }
 ]
