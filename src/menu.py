@@ -50,6 +50,7 @@ def show_menu(servers):
                         print_server_table(servers)
                         
                     break
+
                 press_enter_to_continue()
 
             case "3":
@@ -84,6 +85,8 @@ def show_menu(servers):
                     controller.add_new_server(servers, server_name, address, environment, role, storage)
 
                     print(f"\n[+] Server '{server_name}' added successfully!")
+
+                    press_enter_to_continue()
 
             case "4":
                 print("\n=== DELETE A SERVER ===")
@@ -127,11 +130,14 @@ def show_menu(servers):
                             else:
                                 print(f"\n[!] {result}\n")
                                 break
+                                
                         elif delete_confirmation in ["n"]:
                             print("\nThe deletion was canceled.\n")
                             break
                         else:
                             print("\nSorry, invalid input. Press ['y'] or ['n']. \n Try again!")
+
+                        press_enter_to_continue()
 
             case "5":
                 print("\n=== VERIFY SINGLE SERVER ===")

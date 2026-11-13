@@ -39,7 +39,7 @@ if __name__ == "__main__":
             print(f"No servers found in environment '{args.environment}'.")
             sys.exit(1)
 
-        print_server_table(servers)
+        print_server_table(filtered_servers)
         
         sys.exit(0)
 

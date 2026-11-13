@@ -38,5 +38,13 @@
         "role": "development",
         "status": "down",
         "last_checked": "2026-11-13 17:57"
+    },
+    {
+        "name": "Google",
+        "address": "12345",
+        "environment": "dev",
+        "role": "getway api",
+        "status": "down",
+        "last_checked": "2026-11-13 18:39"
     }
 ]
