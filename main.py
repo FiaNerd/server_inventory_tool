@@ -82,7 +82,15 @@ if __name__ == "__main__":
     if args.check_all:
         check_servers(servers)
 
-        print(f"\n{'NAME':<12} {'ADDRESS':<15} {'ENVIRONMENT':<16} {'ROLE':<16} {'STATUS':<12} {'LAST CHECKED':<16}")
+        print(f"\n"
+                  f"{'NAME':<12} "
+                  f"{'ADDRESS':<15} "
+                  f"{'ENVIRONMENT':<16} "
+                  f"{'ROLE':<16} "
+                  f"{'STATUS':<12} "
+                  f"{'LAST CHECKED':<16}"
+              )
+        
         print("-" * 95)
 
         for server in servers:
@@ -94,5 +102,13 @@ if __name__ == "__main__":
                 f"{server.get('status', 'unknown'):<12} "
                 f"{server.get('last_checked', ''):<16}"
             )
+
+        sys.exit(0)
+
+
+    if args.export:
+        export_report = storage.export_to_csv(servers)
+
+        print("Inventory successfully exported!")
 
         sys.exit(0)
