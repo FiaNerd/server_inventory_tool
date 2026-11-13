@@ -45,6 +45,22 @@
         "environment": "dev",
         "role": "getway api",
         "status": "down",
-        "last_checked": "2026-11-13 18:39"
+        "last_checked": "2026-11-13 18:52"
+    },
+    {
+        "name": "apple",
+        "address": "local home",
+        "environment": "test",
+        "role": "testing",
+        "status": "down",
+        "last_checked": "2026-11-13 18:51"
+    },
+    {
+        "name": "new server",
+        "address": "127.0.0.1",
+        "environment": "test",
+        "role": "big role",
+        "status": "up",
+        "last_checked": "2026-11-13 18:53"
     }
 ]
