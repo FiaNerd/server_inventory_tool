@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--list", action="store_true", help="Show all servers")
     parser.add_argument("--environment", type=str, help="Filter by environment")
-    parser.add_argument("--check", type=str, help="Check a specific server")
+    parser.add_argument("--check", type=str, metavar="NAME", help="Check a specific server")
     parser.add_argument("--check-all", action="store_true", help="Check all servers")
     parser.add_argument("--export", action="store_true", help="Export report as CSV")
 
