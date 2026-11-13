@@ -5,7 +5,7 @@
         "environment": "prod",
         "role": "webserver",
         "status": "down",
-        "last_checked": "2026-11-13 08:09"
+        "last_checked": "2026-11-13 16:30"
     },
     {
         "name": "db01",

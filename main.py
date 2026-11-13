@@ -65,6 +65,9 @@ if __name__ == "__main__":
 
         print_server_table(servers)
 
+        if any(server.get("status") == "down" for server in servers):
+            sys.exit(1)
+
         sys.exit(0)
 
 
