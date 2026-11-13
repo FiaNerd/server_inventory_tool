@@ -26,6 +26,7 @@ def show_menu(servers):
                    print(f"No servers found '{user_choice}'. Please add a server first.")
                else:
                    print_server_table(servers)
+               press_enter_to_continue()
 
             case "2":
                 while True:
@@ -49,6 +50,7 @@ def show_menu(servers):
                         print_server_table(servers)
                         
                     break
+                press_enter_to_continue()
 
             case "3":
                 print("\n=== ADD NEW SERVER === ")
@@ -131,7 +133,6 @@ def show_menu(servers):
                         else:
                             print("\nSorry, invalid input. Press ['y'] or ['n']. \n Try again!")
 
-
             case "5":
                 print("\n=== VERIFY SINGLE SERVER ===")
                 server_name = input("Enter the name of the server to verify: ").strip()
@@ -147,13 +148,19 @@ def show_menu(servers):
                 else:
                     print(f"[!] {result}")
 
+                press_enter_to_continue()
+
             case "6":
                 print("\n=== VERIFY ALL SERVERS ===")
                 controller.check_servers(servers)
 
+                press_enter_to_continue()
+
             case "7":
                 print("\n=== EXPORT REPORT TO CSV ===")
                 storage.export_to_csv(servers)
+
+                press_enter_to_continue()
 
             case "0":
                 print("Exit program..")
