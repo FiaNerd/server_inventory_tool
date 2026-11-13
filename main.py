@@ -54,6 +54,9 @@ if __name__ == "__main__":
         print(f"\nServer '{result['name']}' checked successfully!")
         print(f"Status: {result['status'].upper()} | Last Checked: {result['last_checked']}")
 
+        if result.get("status") == "down":
+            sys.exit(1)
+
         sys.exit(0)
 
 
