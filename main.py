@@ -28,19 +28,17 @@ if __name__ == "__main__":
         menu.show_menu(servers)
         sys.exit(0)
 
-    if args.list:
-        print_server_table(servers)
-        sys.exit(0)
+    if args.list or args.environment:
+        target_servers = servers
 
-    if args.environment:
-        filtered_servers = filter_servers_in_environment(servers, args.environment)
+        if args.environment:
+            target_servers = filter_servers_in_environment(servers, args.environment)
 
-        if not filtered_servers:
-            print(f"No servers found in environment '{args.environment}'.")
-            sys.exit(1)
+            if not target_servers:
+                print(f"No servers found in environment '{args.environment}'.")
+                sys.exit(1)
 
-        print_server_table(filtered_servers)
-        
+        print_server_table(target_servers)
         sys.exit(0)
 
 
