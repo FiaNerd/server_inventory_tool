@@ -4,24 +4,24 @@
         "address": "example.com",
         "environment": "prod",
         "role": "webserver",
-        "status": "down",
-        "last_checked": "2026-11-13 17:57"
+        "status": "up",
+        "last_checked": "2026-11-13 19:28"
     },
     {
         "name": "db01",
         "address": "127.0.0.1",
         "environment": "prod",
         "role": "database",
-        "status": "down",
-        "last_checked": "2026-11-13 17:57"
+        "status": "up",
+        "last_checked": "2026-11-13 19:28"
     },
     {
         "name": "dev01",
         "address": "localhost",
         "environment": "dev",
         "role": "developserver",
-        "status": "down",
-        "last_checked": "2026-11-13 17:57"
+        "status": "up",
+        "last_checked": "2026-11-13 19:28"
     },
     {
         "name": "db02",
@@ -29,15 +29,15 @@
         "environment": "prod",
         "role": "databse",
         "status": "down",
-        "last_checked": "2026-11-13 17:57"
+        "last_checked": "2026-11-13 19:28"
     },
     {
         "name": "dev02",
         "address": "localhost",
         "environment": "prod",
         "role": "development",
-        "status": "down",
-        "last_checked": "2026-11-13 17:57"
+        "status": "up",
+        "last_checked": "2026-11-13 19:28"
     },
     {
         "name": "Google",
@@ -45,7 +45,7 @@
         "environment": "dev",
         "role": "getway api",
         "status": "down",
-        "last_checked": "2026-11-13 18:52"
+        "last_checked": "2026-11-13 19:28"
     },
     {
         "name": "apple",
@@ -53,7 +53,7 @@
         "environment": "test",
         "role": "testing",
         "status": "down",
-        "last_checked": "2026-11-13 18:51"
+        "last_checked": "2026-11-13 19:28"
     },
     {
         "name": "new server",
@@ -61,6 +61,6 @@
         "environment": "test",
         "role": "big role",
         "status": "up",
-        "last_checked": "2026-11-13 18:53"
+        "last_checked": "2026-11-13 19:28"
     }
 ]

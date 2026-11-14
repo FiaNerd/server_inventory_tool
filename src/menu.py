@@ -18,7 +18,6 @@ def show_menu(servers):
 
         user_choice = input("\nChoose an option: ").strip()
 
- # TODO: if there is time, se if you can do when the user press a number, the user should press another key for getting back to the menu
         match user_choice:
             case "1":
                print("\n=== SHOW ALL SERVERS ===")
@@ -33,22 +32,23 @@ def show_menu(servers):
                     print("\n=== SHOW SERVERS FROM ENVIRONMENT ===")
                     print(" [press 'q' to go back to the menu]\n")
 
-                    input_enviorment = input("Which enviorment (dev, test, prod)?: ").strip().lower()
+                    input_environment = input("Which environment (dev, test, prod)?: ").strip().lower()
 
-                    if input_enviorment == "q":
+                    if input_environment == "q":
                         break
 
-                    matched_servers =  controller.filter_servers_in_environment(servers, input_enviorment)
+                    matched_servers = controller.filter_servers_in_environment(servers, input_environment)
 
                     if not matched_servers:
-                        print(f"\n[!] No servers found in the enviorment - {input_enviorment}. \nTry again or add a server.")
+                        print(
+                            f"\n[!] No servers found in the environment - {input_environment}. \nTry again or add a server.")
                         continue
 
                     else:
-                        print(f"\nServer in enviorment '{input_enviorment}'")
+                        print(f"\nServers in environment '{input_environment}':")
 
-                        print_server_table(servers)
-                        
+                        print_server_table(matched_servers)
+
                     break
 
                 press_enter_to_continue()

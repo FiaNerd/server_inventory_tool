@@ -53,7 +53,7 @@ def verify_server_by_name(servers, server_name, storage ):
 def filter_servers_in_environment(servers, environment):
     return [
         server for server in servers
-        if server.get("environment").lower() == environment.lower()
+        if server.get("environment").strip().lower() == environment.strip().lower()
     ]
 
 
