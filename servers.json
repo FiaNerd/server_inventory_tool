@@ -5,7 +5,7 @@
         "environment": "prod",
         "role": "webserver",
         "status": "up",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:13"
     },
     {
         "name": "db01",
@@ -13,7 +13,7 @@
         "environment": "prod",
         "role": "database",
         "status": "up",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:12"
     },
     {
         "name": "dev01",
@@ -21,7 +21,7 @@
         "environment": "dev",
         "role": "developserver",
         "status": "up",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:12"
     },
     {
         "name": "db02",
@@ -29,7 +29,7 @@
         "environment": "prod",
         "role": "databse",
         "status": "down",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:13"
     },
     {
         "name": "dev02",
@@ -37,7 +37,7 @@
         "environment": "prod",
         "role": "development",
         "status": "up",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:13"
     },
     {
         "name": "Google",
@@ -45,7 +45,7 @@
         "environment": "dev",
         "role": "getway api",
         "status": "down",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:13"
     },
     {
         "name": "apple",
@@ -53,7 +53,7 @@
         "environment": "test",
         "role": "testing",
         "status": "down",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:13"
     },
     {
         "name": "new server",
@@ -61,6 +61,6 @@
         "environment": "test",
         "role": "big role",
         "status": "up",
-        "last_checked": "2026-11-13 19:28"
+        "last_checked": "2026-11-14 10:13"
     }
 ]

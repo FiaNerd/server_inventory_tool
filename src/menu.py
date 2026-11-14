@@ -135,7 +135,7 @@ def show_menu(servers):
                             print("\nThe deletion was canceled.\n")
                             break
                         else:
-                            print("\nSorry, invalid input. Press ['y'] or ['n']. \n Try again!")
+                            print("\nSorry, invalid input. Press ['y'] or ['n'].\nTry again!")
 
                         press_enter_to_continue()
 
