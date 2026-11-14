@@ -4,24 +4,24 @@
         "address": "example.com",
         "environment": "prod",
         "role": "webserver",
-        "status": "down",
-        "last_checked": "2026-11-13 16:30"
+        "status": "up",
+        "last_checked": "2026-11-14 10:13"
     },
     {
         "name": "db01",
         "address": "127.0.0.1",
         "environment": "prod",
         "role": "database",
-        "status": "down",
-        "last_checked": "2026-11-13 08:08"
+        "status": "up",
+        "last_checked": "2026-11-14 10:12"
     },
     {
         "name": "dev01",
         "address": "localhost",
         "environment": "dev",
         "role": "developserver",
-        "status": "down",
-        "last_checked": "2026-11-13 08:08"
+        "status": "up",
+        "last_checked": "2026-11-14 10:12"
     },
     {
         "name": "db02",
@@ -29,6 +29,38 @@
         "environment": "prod",
         "role": "databse",
         "status": "down",
-        "last_checked": "2026-11-13 08:08"
+        "last_checked": "2026-11-14 10:13"
+    },
+    {
+        "name": "dev02",
+        "address": "localhost",
+        "environment": "prod",
+        "role": "development",
+        "status": "up",
+        "last_checked": "2026-11-14 10:13"
+    },
+    {
+        "name": "Google",
+        "address": "12345",
+        "environment": "dev",
+        "role": "getway api",
+        "status": "down",
+        "last_checked": "2026-11-14 10:13"
+    },
+    {
+        "name": "apple",
+        "address": "local home",
+        "environment": "test",
+        "role": "testing",
+        "status": "down",
+        "last_checked": "2026-11-14 10:13"
+    },
+    {
+        "name": "new server",
+        "address": "127.0.0.1",
+        "environment": "test",
+        "role": "big role",
+        "status": "up",
+        "last_checked": "2026-11-14 10:13"
     }
 ]

@@ -2,6 +2,7 @@ import subprocess
 from datetime import datetime
 from src import storage
 from src.storage import save_servers
+import platform
 
 
 def add_new_server(servers, server_name, address, environment, role, storage):
@@ -52,7 +53,7 @@ def verify_server_by_name(servers, server_name, storage ):
 def filter_servers_in_environment(servers, environment):
     return [
         server for server in servers
-        if server.get("environment").lower() == environment.lower()
+        if server.get("environment").strip().lower() == environment.strip().lower()
     ]
 
 
@@ -61,8 +62,10 @@ def check_server(server):
     address = server.get("address")
 
     """ Execute the ping command using a structured list """
+    param = "-n" if platform.system().lower() == "windows" else "-c"
+
     result = subprocess.run(
-        ["ping", "-c", "1", address],
+        ["ping", param, "1", address],
         capture_output=True,
         text=True,
     )
