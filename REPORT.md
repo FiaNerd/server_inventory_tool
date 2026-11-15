@@ -72,7 +72,7 @@ success, result = controller.verify_server_by_name(servers, server_name, storage
   Dictionaries work like digital info cards. They store data as key–value pairs, where every key is unique (for example, `"name"`). Instead of remembering a number position, we just ask for the key (like `server["name"]`) to get the right value.
 
 - **Data types used in the server:**
-  In this case, all values inside the json server record are saved as Strings (`str`) of text (which is easy to see because of the quotation marks `""`). So even if a value represents a number or a date/time, it is stored as a string because it is wrapped in quotation marks `""`. (Python dictionaries can also handle other data types like booleans, integers and floats.)
+  In this case, all values inside the JSON server record are saved as Strings (`str`) of text (which is easy to see because of the quotation marks `""`). So even if a value represents a number or a date/time, it is stored as a string because it is wrapped in quotation marks `""`. (Python dictionaries can also handle other data types like booleans, integers and floats.)
 
 ```text
   name: String (str) – e.g., "web01"

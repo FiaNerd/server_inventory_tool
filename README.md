@@ -95,7 +95,7 @@ server_inventory_tool/
 
 ---
 
-## How to Run the Application
+## 🏍️ How to Run the Application
 
 Run `main.py` from the root folder using Python. You can either use the UI menu or run commands directly with CLI flags.
 
@@ -104,15 +104,20 @@ Run `main.py` from the root folder using Python. You can either use the UI menu 
 Start project without any flags to open the menu:
 
 ```bash
-python main.py
+python3 main.py
 ```
+In the menu, you choose a number to perform the following actions:
 
-In the menu, choose a number to:
-- View all servers in a formatted table.
-- Filter servers by environment (`dev`, `test`, `prod`).
-- Add a new server or delete an existing one.
-- Verify a single server or all servers with a live ping check.
-- Export the current server list to a CSV file.
+| Option | Command | Description |
+| :--- | :--- | :--- |
+| `[1]` | **Show all servers** | Reads all saved servers from storage and displays them in a formatted table. |
+| `[2]` | **Show servers in specific environment** | Filters and displays only the servers matching a chosen environment (`dev`, `test`, or `prod`). |
+| `[3]` | **Add new server** | Add new server details (such as `server name`, `address`, `environment` and `role`) and saves the new server. |
+| `[4]` | **Delete server** | Removes an existing server from the inventory by name. |
+| `[5]` | **Verify server** | Runs a live ping check against a single selected server to verify if it is online `up` or offline `down`. |
+| `[6]` | **Verify all servers** | Runs a live ping check across all servers in the inventory and updates their status. |
+| `[7]` | **Export report as CSV** | Exports the current server list and status details to a `.csv` file. |
+| `[0]` | **Exit** | Closes the application. |
 
 ### Mode 2: Command-Line Interface (CLI)
 
@@ -143,7 +148,7 @@ python3 main.py --export
 
 ---
 
-## ⚙️&#xFE0E; Environment Configuration & Filtering
+## ⚙️ Environment Configuration & Filtering
 
 Servers are grouped by environment so you can easily separate test setups from live servers:
 - **`dev`**: Development servers used while building and testing new features.
@@ -155,7 +160,7 @@ The input validator (`src/utils/input_validator.py`) checks that environment nam
 
 ---
 
-## 💾&#xFE0E; Data Persistence & Exports
+## 💾 Data Persistence & Exports
 
 ### Local JSON Storage (`servers.json`)
 
