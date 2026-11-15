@@ -25,6 +25,7 @@ def show_menu(servers):
                    print(f"No servers found '{user_choice}'. Please add a server first.")
                else:
                    print_server_table(servers)
+
                press_enter_to_continue()
 
             case "2":
@@ -106,7 +107,6 @@ def show_menu(servers):
                     if not server_exist:
                         print(f"\n[!] Server '{server_name}' was not found.\nTry again.\n")
                     else:
-
                         delete_confirmation = input(f"Are you sure to delete '{server_name}'? (y/n) ").strip().lower()
 
                         if delete_confirmation in ["y"]:

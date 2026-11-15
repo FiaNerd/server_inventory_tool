@@ -1,6 +1,6 @@
 import sys
 from src import menu, storage
-from src.controller import filter_servers_in_environment, check_server, verify_server_by_name, check_servers
+from src.controller import filter_servers_in_environment, verify_server_by_name, check_servers
 from src.storage import load_servers
 from argparse import ArgumentParser, Namespace
 
