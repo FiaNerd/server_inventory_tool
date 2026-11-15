@@ -119,26 +119,26 @@ In the menu, choose a number to:
 If you want to run a quick check without opening the menu, pass flags directly when running `main.py`. Use `-h` or `--help` to see all available flags:
 
 ```bash
-python main.py --help
+python3 main.py --help
 ```
 
 **Common CLI Examples:**
 
 ```bash
 # List all servers in the inventory
-python main.py --list
+python3 main.py --list
 
 # Filter servers by environment (dev, test, prod)
-python main.py --environment <environment name>
+python3 main.py --environment <environment name>
 
 # Check reachability (ping) for a specific server by name
-python main.py --check <server name>
+python3 main.py --check <server name>
 
 # Run a live ping check on all servers and update their status
-python main.py --check-all
+python3 main.py --check-all
 
 # Export the inventory directly to a CSV file
-python main.py --export
+python3 main.py --export
 ```
 
 ---
