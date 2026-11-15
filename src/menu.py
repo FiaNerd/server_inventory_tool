@@ -126,6 +126,7 @@ def show_menu(servers):
 
                             if success:
                                 print(f"\n{result}\n")
+                                press_enter_to_continue()
                                 break
                             else:
                                 print(f"\n[!] {result}\n")
@@ -133,11 +134,12 @@ def show_menu(servers):
                                 
                         elif delete_confirmation in ["n"]:
                             print("\nThe deletion was canceled.\n")
+                            press_enter_to_continue()
                             break
                         else:
                             print("\nSorry, invalid input. Press ['y'] or ['n'].\nTry again!")
+                            press_enter_to_continue()
 
-                        press_enter_to_continue()
 
             case "5":
                 print("\n=== VERIFY SINGLE SERVER ===")
@@ -176,3 +178,4 @@ def show_menu(servers):
             case _:
                 print(f"\n[!] Invalid option - {user_choice}.")
                 print("Choose a number between 0 and 7 ")
+                press_enter_to_continue()
