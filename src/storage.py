@@ -11,17 +11,33 @@ CONFIG_DATAFILE = Path(os.getenv("INVENTORY_DATAFILE", "servers.json"))
 def load_servers():
     """Load server data from the JSON file."""
     if not CONFIG_DATAFILE.is_file():
-       return []
+        print("\n[i] No existing server file found. Starting with an empty list.")
+        return []
 
-    with CONFIG_DATAFILE.open("r", encoding="utf-8") as file:
-        return json.load(file)
+    try:
+        with CONFIG_DATAFILE.open("r", encoding="utf-8") as file:
+            data = json.load(file)
 
+            if not data:
+                print("\n[i] The server file is empty.")
+
+            return data
+
+    except FileNotFoundError:
+        print(f"\n[!] Error: The file '{CONFIG_DATAFILE}' could not be found.")
+        return []
+    except json.JSONDecodeError:
+        print(f"\n[!] Error: The server file is corrupted or contains invalid JSON.")
+        return []
 
 # A function that save data the servers json file
 def save_servers(servers):
     """Save server data to the JSON file."""
-    with CONFIG_DATAFILE.open("w", encoding="utf-8") as file:
-        json.dump(servers, file, indent=4, ensure_ascii=False)
+    try:
+        with CONFIG_DATAFILE.open("w", encoding="utf-8") as file:
+            json.dump(servers, file, indent=4, ensure_ascii=False)
+    except (PermissionError, OSError) as e:
+        print(f"\n[!] Error: Could not save to file. Check permissions. ({e})")
 
 
 # A function for exporting the serve list into a report folder
@@ -37,10 +53,12 @@ def export_to_csv(servers):
     fieldnames = ["name", "address", "environment", "role", "status", "last_checked"]
 
     # Open file on the right path (report_path)
-    with open (report_path, "w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    try:
+        with open(report_path, "w", newline="", encoding="utf-8") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(servers)
 
-        writer.writeheader()
-        writer.writerows(servers)
-
-    print(f"Report has been exported to {report_path}")
+        print(f"Report has been exported to {report_path}")
+    except (PermissionError, OSError) as e:
+        print(f"\n[!] Error: Could not export CSV report. ({e})")
