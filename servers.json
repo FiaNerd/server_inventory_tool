@@ -16,6 +16,14 @@
         "last_checked": "2026-11-14 10:12"
     },
     {
+        "namn": "test01",
+        "address": "192.0.2.10",
+        "environment": "test",
+        "role": "testserver",
+        "status": "unknown",
+        "last_checked": ""
+    },
+    {
         "name": "dev01",
         "address": "localhost",
         "environment": "dev",

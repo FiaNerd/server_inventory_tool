@@ -49,10 +49,10 @@ def show_menu(servers):
                         print(f"\nServers in environment '{input_environment}':")
 
                         print_server_table(matched_servers)
+                        press_enter_to_continue()
 
                     break
 
-                press_enter_to_continue()
 
             case "3":
                 print("\n=== ADD NEW SERVER === ")
