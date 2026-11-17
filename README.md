@@ -119,9 +119,9 @@ In the menu, you choose a number to perform the following actions:
 | `[7]` | **Export report as CSV** | Exports the current server list and status details to a `.csv` file. |
 | `[0]` | **Exit** | Closes the application. |
 
-> [NOTE]
-> You cannot add a new server named only "q". 
-> The letter "q" is reserved to cancel the input and return to the menu.
+> [!NOTE]
+> Server names (or other inputs) cannot consist of or start with "q". 
+> The letter "q" is reserved as a shortcut to cancel the operation and return to the menu.
 
 ### Mode 2: Command-Line Interface (CLI)
 
