@@ -138,7 +138,7 @@ python3 main.py --help
 python3 main.py --list
 
 # Filter servers by environment (dev, test, prod)
-python3 main.py --environment <environment name>
+python3 main.py --list --environment <environment name>
 
 # Check reachability (ping) for a specific server by name
 python3 main.py --check <server name>
