@@ -61,7 +61,7 @@ In my code I use several iterations, conditions, and functions. Here are three e
  ```
 **How it is called:** In `src/menu.py`, the function is called by passing the three required arguments (servers, server_name, and storage), and it unpacks the result into success and result:
   
-*Example from `src/menu.py ` (line 161)`*
+*Example from `src/menu.py ` (line 164)`*
 ```python
 success, result = controller.verify_server_by_name(servers, server_name, storage)
 ```
