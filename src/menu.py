@@ -22,7 +22,7 @@ def show_menu(servers):
             case "1":
                print("\n=== SHOW ALL SERVERS ===")
                if not servers:
-                   print(f"No servers found '{user_choice}'. Please add a server first.")
+                   print(f"No servers found. Please add a server first.")
                else:
                    print_server_table(servers)
 
@@ -53,41 +53,54 @@ def show_menu(servers):
 
                     break
 
-
             case "3":
                 print("\n=== ADD NEW SERVER === ")
                 print("Press [q] at any time to return to the menu.\n")
 
                 while True:
                     server_name = valid_input("Enter server name: ").strip()
-
                     if server_name.lower() == 'q':
                         print("\nReturning to menu...")
                         break
 
                     if any(server.get("name", "").lower() == server_name.lower() for server in servers):
                         print(f"\n[!] The server name '{server_name}' already exists.\nTry another server name.\n")
-                    else:
+                        continue
+                    break
+
+                if server_name.lower() == 'q':
+                    continue
+
+                address = valid_input("Enter address: ").strip()
+                if address.lower() == 'q':
+                    print("\n[!] Operation cancelled.")
+                    continue
+
+                while True:
+                    environment = valid_input("Enter environment (dev, test, prod): ").strip()
+                    if environment.lower() == 'q':
+                        print("\n[!] Operation cancelled.")
                         break
 
-                if server_name.lower() != 'q':
-                    address = valid_input("Enter address: ").strip()
+                    if environment in ["dev", "test", "prod"]:
+                        break
 
-                    while True:
-                        environment = valid_input("Enter environment (dev, test, prod): ").strip()
+                    print(f"\n[!] Sorry, the environment '{environment}' is invalid.\nTry again.\n")
 
-                        if environment in ["dev", "test", "prod"]:
-                            break
+                if environment.lower() == 'q':
+                    continue
 
-                        print(f"\n[!] Sorry, the environment '{environment}' is invalid. \n Try again.\n")
+                role = valid_input("Enter role: ").strip()
 
-                    role = valid_input("Enter role: ").strip()
+                if role.lower() == 'q':
+                    print("\n[!] Operation cancelled.")
+                    continue
 
-                    controller.add_new_server(servers, server_name, address, environment, role, storage)
+                controller.add_new_server(servers, server_name, address, environment, role, storage)
 
-                    print(f"\n[+] Server '{server_name}' added successfully!")
+                print(f"\n[+] Server '{server_name}' added successfully!")
 
-                    press_enter_to_continue()
+                press_enter_to_continue()
 
             case "4":
                 print("\n=== DELETE A SERVER ===")

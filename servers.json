@@ -1,50 +1,10 @@
 [
     {
-        "name": "web01",
-        "address": "example.com",
+        "name": "test",
+        "address": "jkl",
         "environment": "prod",
-        "role": "webserver",
-        "status": "up",
-        "last_checked": "2026-11-17 07:48"
-    },
-    {
-        "name": "db01",
-        "address": "127.0.0.1",
-        "environment": "prod",
-        "role": "database",
-        "status": "up",
-        "last_checked": "2026-11-17 07:48"
-    },
-    {
-        "name": "test01",
-        "address": "192.0.2.10",
-        "environment": "test",
-        "role": "testserver",
-        "status": "up",
-        "last_checked": "2026-11-17 07:48"
-    },
-    {
-        "name": "dev01",
-        "address": "localhost",
-        "environment": "dev",
-        "role": "developserver",
-        "status": "up",
-        "last_checked": "2026-11-17 07:49"
-    },
-    {
-        "name": "google",
-        "address": "www.google.com",
-        "environment": "prod",
-        "role": "production",
-        "status": "up",
-        "last_checked": "2026-11-17 07:48"
-    },
-    {
-        "name": "google.com",
-        "address": "googl.com",
-        "environment": "prod",
-        "role": "test",
-        "status": "up",
-        "last_checked": "2026-11-17 07:48"
+        "role": "köl",
+        "status": "unknown",
+        "last_checked": ""
     }
 ]
