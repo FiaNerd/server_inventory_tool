@@ -161,7 +161,7 @@ def show_menu(servers):
             case "6":
                 print("\n=== VERIFY ALL SERVERS ===")
                 controller.check_servers(servers)
-
+                print_server_table(servers)
                 press_enter_to_continue()
 
             case "7":

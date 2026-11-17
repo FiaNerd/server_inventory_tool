@@ -5,7 +5,7 @@
         "environment": "prod",
         "role": "webserver",
         "status": "up",
-        "last_checked": "2026-11-15 19:41"
+        "last_checked": "2026-11-17 07:11"
     },
     {
         "name": "db01",
@@ -13,7 +13,7 @@
         "environment": "prod",
         "role": "database",
         "status": "up",
-        "last_checked": "2026-11-15 19:41"
+        "last_checked": "2026-11-17 07:11"
     },
     {
         "name": "test01",
@@ -21,7 +21,7 @@
         "environment": "test",
         "role": "testserver",
         "status": "up",
-        "last_checked": "2026-11-15 19:41"
+        "last_checked": "2026-11-17 07:11"
     },
     {
         "name": "dev01",
@@ -29,14 +29,22 @@
         "environment": "dev",
         "role": "developserver",
         "status": "up",
-        "last_checked": "2026-11-15 19:41"
+        "last_checked": "2026-11-17 07:11"
     },
     {
         "name": "google",
         "address": "www.google.com",
         "environment": "prod",
         "role": "production",
-        "status": "unknown",
-        "last_checked": ""
+        "status": "up",
+        "last_checked": "2026-11-17 07:11"
+    },
+    {
+        "name": "google.com",
+        "address": "googl.com",
+        "environment": "prod",
+        "role": "test",
+        "status": "up",
+        "last_checked": "2026-11-17 07:11"
     }
 ]
