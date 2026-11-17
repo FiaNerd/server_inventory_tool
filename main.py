@@ -68,10 +68,10 @@ if __name__ == "__main__":
 
         sys.exit(0)
 
-
     if args.export:
-        export_report = storage.export_to_csv(servers)
+        success = storage.export_to_csv(servers)
 
-        print("Inventory successfully exported!")
-
-        sys.exit(0)
+        if success:
+            sys.exit(0)
+        else:
+            sys.exit(1)
