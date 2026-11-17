@@ -1,6 +1,6 @@
 from src import controller, storage
 from src.utils.input_validator import valid_input
-from src.utils.press_enter_to_continue import press_enter_to_continue
+from src.utils.get_back_to_menu import press_enter_to_continue, cancel_input_with_q, print_q_to_console
 from src.utils.print_server_table import print_server_table
 
 
@@ -31,11 +31,11 @@ def show_menu(servers):
             case "2":
                 while True:
                     print("\n=== SHOW SERVERS FROM ENVIRONMENT ===")
-                    print(" [press 'q' to go back to the menu]\n")
+                    print_q_to_console()
 
                     input_environment = input("Which environment (dev, test, prod)?: ").strip().lower()
 
-                    if input_environment == "q":
+                    if cancel_input_with_q(input_environment):
                         break
 
                     matched_servers = controller.filter_servers_in_environment(servers, input_environment)
@@ -55,32 +55,33 @@ def show_menu(servers):
 
             case "3":
                 print("\n=== ADD NEW SERVER === ")
-                print("Press [q] at any time to return to the menu.\n")
+                print_q_to_console()
 
                 while True:
                     server_name = valid_input("Enter server name: ").strip()
                     
-                    if server_name.lower() == 'q':
-                        print("\nReturning to menu...")
+                    if cancel_input_with_q(server_name):
                         break
+
 
                     if any(server.get("name", "").lower() == server_name.lower() for server in servers):
                         print(f"\n[!] The server name '{server_name}' already exists.\nTry another server name.\n")
                         continue
                     break
 
-                if server_name.lower() == 'q':
+                if cancel_input_with_q(server_name):
                     continue
 
                 address = valid_input("Enter address: ").strip()
-                if address.lower() == 'q':
+
+                if cancel_input_with_q(address):
                     print("\n[!] Operation cancelled.")
                     continue
 
                 while True:
                     environment = valid_input("Enter environment (dev, test, prod): ").strip()
-                    if environment.lower() == 'q':
-                        print("\n[!] Operation cancelled.")
+
+                    if cancel_input_with_q(environment):
                         break
 
                     if environment in ["dev", "test", "prod"]:
@@ -88,13 +89,12 @@ def show_menu(servers):
 
                     print(f"\n[!] Sorry, the environment '{environment}' is invalid.\nTry again.\n")
 
-                if environment.lower() == 'q':
+                if cancel_input_with_q(environment):
                     continue
 
                 role = valid_input("Enter role: ").strip()
 
-                if role.lower() == 'q':
-                    print("\n[!] Operation cancelled.")
+                if cancel_input_with_q(role):
                     continue
 
                 controller.add_new_server(servers, server_name, address, environment, role, storage)
@@ -105,13 +105,12 @@ def show_menu(servers):
 
             case "4":
                 print("\n=== DELETE A SERVER ===")
-                print("Press [q] at any time to return to the menu.\n")
+                print_q_to_console()
 
                 while True:
                     server_name = input("What server to delete?: ").strip()
 
-                    if server_name.lower() == "q":
-                        print("\nReturning to menu...")
+                    if cancel_input_with_q(server_name):
                         break
 
                     server_exist = next((server for server in servers
@@ -121,7 +120,7 @@ def show_menu(servers):
                     if not server_exist:
                         print(f"\n[!] Server '{server_name}' was not found.\nTry again.\n")
                     else:
-                        delete_confirmation = input(f"Are you sure to delete '{server_name}'? (y/n) ").strip().lower()
+                        delete_confirmation = input(f"Are you sure to delete '{server_name}'? (y/n): ").strip().lower()
 
                         if delete_confirmation in ["y"]:
 
@@ -131,6 +130,9 @@ def show_menu(servers):
                                 print(f"\n[!] WARNING: {server_name} is in production!\n Are you sure you wanna delete '{server_name}'")
 
                                 prod_confirmation = input(f"\nConfirm the server name '{server_name}' again: ").strip()
+
+                                if cancel_input_with_q(prod_confirmation):
+                                    break
 
                                 if prod_confirmation.lower() != server_name.lower():
                                     print("\n[!] The name did not match. Canceld delation\n")
@@ -151,8 +153,8 @@ def show_menu(servers):
                             press_enter_to_continue()
                             break
                         else:
-                            print("\nSorry, invalid input. Press ['y'] or ['n'].\nTry again!")
-                            press_enter_to_continue()
+                            print("\nSorry, invalid input. Press ['y'] or ['n'].\nTry again!\n")
+
 
 
             case "5":

@@ -119,6 +119,10 @@ In the menu, you choose a number to perform the following actions:
 | `[7]` | **Export report as CSV** | Exports the current server list and status details to a `.csv` file. |
 | `[0]` | **Exit** | Closes the application. |
 
+> [NOTE]
+> You cannot add a new server named only "q". 
+> The letter "q" is reserved to cancel the input and return to the menu.
+
 ### Mode 2: Command-Line Interface (CLI)
 
 If you want to run a quick check without opening the menu, pass flags directly when running `main.py`. Use `-h` or `--help` to see all available flags:
