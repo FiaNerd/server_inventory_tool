@@ -23,7 +23,7 @@ A command-line and interactive Python tool for managing, monitoring, and filteri
 
 ---
 
-## 🚀&#xFE0E; Description
+## 🚀 Description
 
 Server Inventory Tool is a Python program made to help you keep track of your servers and check if they are online. 
 You can use it either through an interactive text menu or directly from the command line with CLI flags. 
@@ -48,7 +48,7 @@ Keeping track of which servers are running and what roles they have is important
 
 ---
 
-## ⚙️&#xFE0E; Prerequisites & Setup
+## ⚙️ Prerequisites & Setup
 
 ### System Requirements
 
@@ -67,7 +67,7 @@ Keeping track of which servers are running and what roles they have is important
    ```
 ---
 
-## 🌲&#xFE0E; Project Structure
+## 🌲 Project Structure
 
 The project is built into separate modules to keep the user interface, logic, and file handling apart:
 
@@ -145,7 +145,10 @@ python3 main.py --check-all
 # Export the inventory directly to a CSV file
 python3 main.py --export
 ```
-
+## Exit Codes
+This tool uses standard exit codes, making it easy to use in bash scripts and CI/CD pipelines:
+- **`0`**: Everything went well (the server is UP, or all checks passed).
+- **`1`**: Something failed (at least one server is DOWN, or the requested server was not found).
 ---
 
 ## ⚙️ Environment Configuration & Filtering
