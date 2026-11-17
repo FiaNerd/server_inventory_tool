@@ -30,13 +30,5 @@
         "role": "developmentserver",
         "status": "up",
         "last_checked": "2026-11-17 10:36"
-    },
-    {
-        "name": "hej",
-        "address": "hej",
-        "environment": "prod",
-        "role": "web",
-        "status": "unknown",
-        "last_checked": ""
     }
 ]
