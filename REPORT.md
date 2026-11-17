@@ -22,7 +22,7 @@ In my code I use several iterations, conditions, and functions. Here are three e
   - **What it does:** It checks whether the user's confirmation input is `"y"` (to proceed), `"n"` (to cancel), or something invalid, and directs the program down the correct path based on the answer.
   - **How the syntax works:** Python checks the conditions from top to bottom. The `if` statement checks the first condition. If it is false, it continues to the next statement (`elif` / "else if") to check alternative options, and if nothing is true, `else` catches anything that didn't match the above.
   
-*Example from `src/menu.py` (start line: 111):*
+*Example from `src/menu.py` (start line: 125):*
 ```python
   if delete_confirmation in ["y"]:
       # If the user press "y"
@@ -61,7 +61,7 @@ In my code I use several iterations, conditions, and functions. Here are three e
  ```
 **How it is called:** In `src/menu.py`, the function is called by passing the three required arguments (servers, server_name, and storage), and it unpacks the result into success and result:
   
-*Example from `src/menu.py ` (start line 145)`*
+*Example from `src/menu.py ` (line 161)`*
 ```python
 success, result = controller.verify_server_by_name(servers, server_name, storage)
 ```
@@ -205,7 +205,7 @@ def check_server(server):
   - **csv (Report Exporting):**<br/>
   **Used for:** Formatting and writing flat data rows so reports can be opened easily in spreadsheet tools like Excel. Translating Python dictionaries into formatted flat rows and columns using csv.DictWriter.
 
-*Example from `src/storage.py`  (start line: 35)*
+*Example from `src/storage.py`  (start line: 44)*
 ```python
 def export_to_csv(servers):
     """Export all servers to a timestamped CSV file in the 'reports' directory"""
@@ -232,7 +232,7 @@ def export_to_csv(servers):
   - **1a. Validation:** Essential for preventing bad data—such as accidental whitespace or empty fields and ensuring the user provides correct and expected information.
   - **1b. Cancel at any time:** A users should never feel trapped. Giving the option to cancel (`[q]` to quit) alongside solid validation keeps the data clean and makes the tool much easier to use.
 
-*From `src/utils/input_validator.py`*
+*1a - From `src/utils/input_validator.py`*
 ```python
 # Validation for user input. 
 def valid_input(user_input):
@@ -244,15 +244,18 @@ def valid_input(user_input):
         print("\n[!] This is required field.\n")
 ```
 
-  *Example from `src/menu.py` (start line: 57)*
-  ```python
-  case "3":
-      print("\n=== ADD NEW SERVER === ")
-      # if the user regrat to add a new server 
-      print("Press [q] at any time to return to the menu.\n")
+* **Example from `src/menu.py` (line 56):**
+```python
+    case "3":
+        print("\n=== ADD NEW SERVER === ")
+        print("Press [q] at any time to return to the menu.\n")
 
-      while True:
-          server_name = valid_input("Enter server name: ").strip()
+        while True:
+            server_name = valid_input("Enter server name: ").strip() # <- Calling validation input
+            
+            if server_name.lower() == 'q': # <- check if user press 'q'
+               print("\nReturning to menu...")
+               break
 ```
 
 **2. Defensive Programming:**

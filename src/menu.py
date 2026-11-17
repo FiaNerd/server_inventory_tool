@@ -59,6 +59,7 @@ def show_menu(servers):
 
                 while True:
                     server_name = valid_input("Enter server name: ").strip()
+                    
                     if server_name.lower() == 'q':
                         print("\nReturning to menu...")
                         break
