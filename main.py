@@ -1,5 +1,5 @@
 import sys
-from src import menu, storage
+from src import menu, storage, controller
 from src.controller import filter_servers_in_environment, verify_server_by_name, check_servers
 from src.storage import load_servers
 from argparse import ArgumentParser, Namespace
@@ -11,7 +11,7 @@ if __name__ == "__main__":
     parser = ArgumentParser(
         prog='server_inventory_tool',
         description='A command-line and interactive tool to manage and monitor server inventories.',
-        epilog='Example: python3 main.py --list or python3 main.py --environment production'
+        epilog='Example: python3 main.py --list or python3 main.py --list --environment prod'
     )
 
     parser.add_argument("--list", action="store_true", help="Show all servers")
@@ -28,19 +28,27 @@ if __name__ == "__main__":
         menu.show_menu(servers)
         sys.exit(0)
 
-    if args.list or args.environment:
-        target_servers = servers
+    if args.environment and not args.list:
+        print("[!] Error: --environment requires --list flag.")
+        sys.exit(1)
+
+    if args.list:
+        servers = storage.load_servers()
 
         if args.environment:
-            target_servers = filter_servers_in_environment(servers, args.environment)
+            target_servers = controller.filter_servers_in_environment(servers, args.environment)
+        else:
+            target_servers = servers
 
-            if not target_servers:
-                print(f"No servers found in environment '{args.environment}'.")
-                sys.exit(1)
-
-        print_server_table(target_servers)
+        if not target_servers:
+            print("No servers found.")
+        else:
+            print_server_table(target_servers)
         sys.exit(0)
 
+    if args.environment and not args.list:
+        print("[!] Error: --environment requires --list flag.")
+        sys.exit(1)
 
     if args.check:
         success, result = verify_server_by_name(servers, args.check, storage)
