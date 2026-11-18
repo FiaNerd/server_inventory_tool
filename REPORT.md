@@ -95,10 +95,14 @@ success, result = controller.verify_server_by_name(servers, server_name, storage
 ## 4. Program Structure: Modules and Functions
 The program is divided into modular files to keep the code clean, organized, and easy to maintain. By separating user interactions from core logic and storage handling, each file has a single responsibility:
 
-**MAIN `src/main.py` (Entry Point):**
+**MAIN `main.py` (Entry Point):**
 <br>
-**Responsibility:** Acts as the starting point of the application. It initializes the program, loads the initial data, handles command-line arguments (using `argparse`), and launches the main menu loop.
-  
+**Responsibility:** Acts as the clean starting point of the application in the project root. It uses the `if __name__ == "__main__":` guard to invoke `run_cli()` and launch the tool.
+
+**CLI `src/cli.py` (Command-Line Interface):**
+<br>
+**Responsibility:** Parses and validates command-line arguments using `argparse` (`--list`, `--environment`, `--check`, `--check-all`, and `--export`). If no flags are provided, it launches the interactive menu; otherwise, it triggers the appropriate controller or storage functions and returns proper system exit codes (`sys.exit(0)` or `sys.exit(1)`).
+
 **MENU `src/menu.py` (User Interface & Navigation):**
 <br>
 **Responsibility:** Handles all interactions with the user in the console. It displays menus, collects user input (such as server names or environment choices), checks for valid input using conditional statements, and decides what action to trigger next.
@@ -111,7 +115,7 @@ The program is divided into modular files to keep the code clean, organized, and
 <br>
  **Responsibility:** Handles reading and writing files. It saves and loads server data in JSON format so the structure stays intact, and exports CSV reports that can be opened in spreadsheet programs like Excel.
 
-**UTILS `src/utils.py` (Helper Functions):**
+**UTILS `src/utils/` (Helper Functions):**
 <br>
 **Responsibility:** Contains shared helper functions used across the entire application. This avoids repeating the same code in multiple places and keeps the project clean and easy to maintain.
 
