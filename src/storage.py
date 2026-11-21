@@ -60,5 +60,7 @@ def export_to_csv(servers):
             writer.writerows(servers)
 
         print(f"Report has been exported to {report_path}")
+        return True
     except (PermissionError, OSError) as e:
         print(f"\n[!] Error: Could not export CSV report. ({e})")
+        return False
