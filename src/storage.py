@@ -44,7 +44,6 @@ def save_servers(servers):
 def export_to_csv(servers):
     """Export all servers to a timestamped CSV file in the 'reports' directory"""
     report_dir = Path("reports")
-    report_dir.mkdir(exist_ok=True)
 
     now = datetime.now()
     current_filename = f"inventory_{now.strftime('%Y-%m-%d_%H%M')}.csv"
@@ -54,6 +53,8 @@ def export_to_csv(servers):
 
     # Open file on the right path (report_path)
     try:
+        report_dir.mkdir(exist_ok=True)
+
         with open(report_path, "w", newline="", encoding="utf-8") as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
