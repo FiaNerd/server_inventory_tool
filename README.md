@@ -76,16 +76,17 @@ server_inventory_tool/
 ├── reports/                    # Generated CSV export files
 ├── src/
 │   ├── utils/                  # Helper functions for UI and input checks
+│   │   ├── get_back_to_menu.py
 │   │   ├── input_validator.py
-│   │   ├── press_enter_to_continue.py
 │   │   └── print_server_table.py
 │   ├── controller.py           # Main logic and ping checks
 │   ├── menu.py                 # Interactive text menu and user prompts
+│   ├── run_cli.py              # CLI argument parser and execution flow
 │   └── storage.py              # JSON saving/loading and CSV export
 ├── .gitignore                  # Files and folders ignored by Git
-├── main.py                     # Entry point and CLI argument parser
+├── main.py                     # Entry point (runs CLI and menu)
 ├── README.md                   # Project documentation
-├── REPORT.md                   # Technical report and code explanations
+├── REDOGORELSE.md              # Technical report and code explanations
 └── servers.json                # Local JSON file storing the server list
 ```
 > [!NOTE]
