@@ -121,8 +121,12 @@ In the menu, you choose a number to perform the following actions:
 | `[0]` | **Exit** | Closes the application. |
 
 > [!NOTE]
-> Server names (or other inputs) cannot consist of or start with "q". 
-> The letter "q" is reserved as a shortcut to cancel the operation and return to the menu.
+> All inputs cannot be just "q", as "q" is reserved as a shortcut to cancel the operation and return to the menu. 
+> Values starting with "q" (such as "q-sql-01") are allowed.
+
+> [!TIP]
+> To exit the input, type:  `[q]` + `[Enter]`. 
+
 
 ### Mode 2: Command-Line Interface (CLI)
 
