@@ -99,7 +99,7 @@ The program is divided into modular files to keep the code clean, organized, and
 <br>
 **Responsibility:** Acts as the clean starting point of the application in the project root. It uses the `if __name__ == "__main__":` guard to invoke `run_cli()` and launch the tool.
 
-**CLI `src/run_cli.py` (Command-Line Interface):**
+**RUN_CLI `src/run_cli.py` (Command-Line Interface):**
 <br>
 **Responsibility:** Parses and validates command-line arguments using `argparse` (`--list`, `--environment`, `--check`, `--check-all`, and `--export`). If no flags are provided, it launches the interactive menu; otherwise, it triggers the appropriate controller or storage functions and returns proper system exit codes (`sys.exit(0)` or `sys.exit(1)`).
 
